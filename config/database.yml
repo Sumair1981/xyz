@@ -23,7 +23,14 @@ default: &default
 
 development:
   <<: *default
-  database: sk2_development
+  adapter: postgresql
+  encoding: unicode
+  database: sk2_development  
+  pool: 5
+  username: postgres
+  password: Admin12345    
+  host: localhost
+  port: 5432
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,7 +65,13 @@ development:
 test:
   <<: *default
   database: sk2_test
-
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: Admin12345    
+  host: localhost
+  port: 5432
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -81,5 +94,5 @@ test:
 production:
   <<: *default
   database: sk2_production
-  username: sk2
-  password: <%= ENV['SK2_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: <%= ENV['Admin12345'] %>
